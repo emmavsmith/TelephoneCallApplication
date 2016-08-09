@@ -35,25 +35,28 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var call in Model.CallDetails)
+        @foreach (var group in Model.CallDetails)
         {
-            <tr>
-                <td>
-                    @call.UserId
-                </td>
-                <td>
-                    @call.Date.ToString("dd/MM/yyyy HH:mm")
-                </td>
-                <td>
-                    @call.PhoneNumber
-                </td>
-                <td>
-                    @call.CustomLabel
-                </td>
-                <td>
-                    @call.DurationInMinutes.ToString("####.##") (mins)
-                </td>
-            </tr>
+            foreach (var call in group)
+            {
+                <tr>
+                    <td>
+                        @call.UserId
+                    </td>
+                    <td>
+                        @call.Date.ToString("dd/MM/yyyy HH:mm")
+                    </td>
+                    <td>
+                        @call.PhoneNumber
+                    </td>
+                    <td>
+                        @call.CustomLabel
+                    </td>
+                    <td>
+                        @call.DurationInMinutes.ToString("####.##") (mins)
+                    </td>
+                </tr>
+            }
         }
     </tbody>
 </table>
