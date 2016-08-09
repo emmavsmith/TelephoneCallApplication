@@ -39,7 +39,7 @@
         {
             foreach (var call in group.CallDetails)
             {
-                <tr>
+                <tr class="@(@group.DurationInMinutes > 30 ? "exceeded" : "")">
                     <td>
                         @call.UserId
                     </td>
