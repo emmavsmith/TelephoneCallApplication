@@ -37,7 +37,7 @@
     <tbody>
         @foreach (var group in Model.CallDetails)
         {
-            foreach (var call in group)
+            foreach (var call in group.CallDetails)
             {
                 <tr>
                     <td>
@@ -56,7 +56,18 @@
                         @call.DurationInMinutes.ToString("####.##") (mins)
                     </td>
                 </tr>
-            }
+              }
+            <tr>
+                <td>
+                    Total duration for user @group.CallDetails.First().UserId on @group.CallDetails.First().Date.ToString("dd/MM/yyyy")
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    @group.DurationInMinutes (mins)
+                </td>
+            </tr>
         }
     </tbody>
 </table>

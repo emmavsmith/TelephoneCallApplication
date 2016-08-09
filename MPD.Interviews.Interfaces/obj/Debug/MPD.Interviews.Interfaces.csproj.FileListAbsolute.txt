@@ -7,3 +7,12 @@ C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Interfaces\bin\D
 C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Interfaces\obj\Debug\MPD.Interviews.Interfaces.csprojResolveAssemblyReference.cache
 C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Interfaces\obj\Debug\MPD.Interviews.Interfaces.dll
 C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Interfaces\obj\Debug\MPD.Interviews.Interfaces.pdb
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\bin\Debug\MPD.Interviews.Interfaces.dll
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\bin\Debug\MPD.Interviews.Interfaces.pdb
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\bin\Debug\MPD.Interviews.Domain.dll
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\bin\Debug\System.Data.SQLite.dll
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\bin\Debug\MPD.Interviews.Domain.pdb
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\bin\Debug\System.Data.SQLite.xml
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\obj\Debug\MPD.Interviews.Interfaces.csprojResolveAssemblyReference.cache
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\obj\Debug\MPD.Interviews.Interfaces.dll
+C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Interfaces\obj\Debug\MPD.Interviews.Interfaces.pdb
