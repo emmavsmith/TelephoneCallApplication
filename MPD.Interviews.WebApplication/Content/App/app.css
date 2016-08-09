@@ -1,0 +1,7 @@
+﻿/* application global styles */
+.input-validation-error {
+    border: 1px solid #df3900;
+}
+.field-validation-error {
+    color: #df3900;
+}

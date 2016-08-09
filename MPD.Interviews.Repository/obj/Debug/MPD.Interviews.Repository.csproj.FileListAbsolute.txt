@@ -1,0 +1,15 @@
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\MPD.Interviews.Repository.dll.config
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\MPD.Interviews.Repository.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\MPD.Interviews.Repository.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\Dapper.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\MPD.Interviews.Domain.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\MPD.Interviews.Interfaces.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\System.Data.SQLite.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\MPD.Interviews.Domain.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\MPD.Interviews.Interfaces.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\Dapper.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\Dapper.xml
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\bin\Debug\System.Data.SQLite.xml
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\obj\Debug\MPD.Interviews.Repository.csprojResolveAssemblyReference.cache
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\obj\Debug\MPD.Interviews.Repository.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Repository\obj\Debug\MPD.Interviews.Repository.pdb

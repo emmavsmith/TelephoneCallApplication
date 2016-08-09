@@ -1,0 +1,59 @@
+﻿@using MPD.Interviews.WebApplication.ViewModels.Enums
+@model MPD.Interviews.WebApplication.ViewModels.CallDetailsViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles
+{
+    <style type="text/css">
+        .exceeded {
+            color: red;
+        }
+    </style>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                User Id
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Label
+            </th>
+            <th>
+                Duration
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var call in Model.CallDetails)
+        {
+            <tr>
+                <td>
+                    @call.UserId
+                </td>
+                <td>
+                    @call.Date.ToString("dd/MM/yyyy HH:mm")
+                </td>
+                <td>
+                    @call.PhoneNumber
+                </td>
+                <td>
+                    @call.CustomLabel
+                </td>
+                <td>
+                    @call.DurationInMinutes.ToString("####.##") (mins)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,5 @@
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Domain\bin\Debug\MPD.Interviews.Domain.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Domain\bin\Debug\MPD.Interviews.Domain.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Domain\obj\Debug\MPD.Interviews.Domain.csprojResolveAssemblyReference.cache
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Domain\obj\Debug\MPD.Interviews.Domain.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Domain\obj\Debug\MPD.Interviews.Domain.pdb

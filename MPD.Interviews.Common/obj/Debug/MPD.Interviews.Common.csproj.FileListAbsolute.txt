@@ -1,0 +1,13 @@
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\MPD.Interviews.Common.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\MPD.Interviews.Common.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\MPD.Interviews.Interfaces.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\NLog.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\MPD.Interviews.Domain.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\System.Data.SQLite.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\MPD.Interviews.Interfaces.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\NLog.xml
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\MPD.Interviews.Domain.pdb
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\bin\Debug\System.Data.SQLite.xml
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\obj\Debug\MPD.Interviews.Common.csprojResolveAssemblyReference.cache
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\obj\Debug\MPD.Interviews.Common.dll
+C:\Users\EmmaVictoria\Desktop\mpd-interview-test\MPD.Interviews.Common\obj\Debug\MPD.Interviews.Common.pdb
