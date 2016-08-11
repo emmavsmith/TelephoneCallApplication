@@ -11,8 +11,27 @@
         .exceeded {
             color: red;
         }
+        .filter-link-text {
+            color: white;
+        }
     </style>
 }
+
+<div class="container">
+    <div>Choose a filter</div>
+    <div>
+        <div class="btn btn-info">@Html.ActionLink("No Filter", "Index", "Home", new { filterType = CallDetailFilterType.None }, new {@class = "filter-link-text"})</div>
+        <div class="btn btn-info">@Html.ActionLink("Morning Calls", "Index", "Home", new { filterType = CallDetailFilterType.MorningCalls }, new { @class = "filter-link-text" })</div>
+        <div class="btn btn-info">@Html.ActionLink("Aftrnoon Calls", "Index", "Home", new { filterType = CallDetailFilterType.AfternoonCalls }, new { @class = "filter-link-text" })</div>
+        <div class="btn btn-info">@Html.ActionLink("Mobile Numbers", "Index", "Home", new { filterType = CallDetailFilterType.MobileNumbers }, new { @class = "filter-link-text" })</div>
+        <div class="btn btn-info">@Html.ActionLink("Landline Numbers", "Index", "Home", new { filterType = CallDetailFilterType.LandlineNumbers }, new { @class = "filter-link-text" })</div>
+        @*<a href="0"><div class="btn btn-info">No Filter</div></a>
+        <a href="2"><div class="btn btn-info">Morning Calls</div></a>
+        <a href="4"><div class="btn btn-info">Afternoon Calls</div></a>
+        <a href="8"><div class="btn btn-info">Mobile Numbers</div></a>
+        <a href="16"><div class="btn btn-info">Landline Numbers</div></a>*@
+    </div>
+</div>
 
 <table class="table table-striped">
     <thead>

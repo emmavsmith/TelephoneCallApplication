@@ -1,1 +1,2 @@
 ﻿//global application javascript
+
