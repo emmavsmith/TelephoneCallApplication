@@ -22,64 +22,10 @@ namespace MPD.Interviews.WebApplication.Controllers
         public ActionResult Index(CallDetailFilterType filterType = CallDetailFilterType.None)
         {
             var allCalls = _callDetailsService.GetAllCalls();
+            var callDetailsViewModel = new CallDetailsViewModel(filterType);
+            var orderedCallsForFilter = GetOrderedCallsForFilter(filterType, allCalls);
 
-            var callDetailsViewModel = new CallDetailsViewModel()
-            {
-                AppliedFilterType = filterType
-            };
-
-            IEnumerable<IEnumerable<IGrouping<DateTime, CallDetailViewModel>>> orderedCalls;
-
-            switch (filterType)
-            {
-                case CallDetailFilterType.None:
-
-                    orderedCalls = allCalls.OrderBy(x => x.UserId)
-                        .GroupBy(y => y.UserId)
-                        .Select(group => group.GroupBy(z => z.Date.Date)).ToList();
-                    break;
-
-                case CallDetailFilterType.MorningCalls:
-
-                    orderedCalls = allCalls
-                        .Where(c => c.Date.TimeOfDay < new TimeSpan(12, 0, 0))
-                        .OrderBy(x => x.UserId)
-                        .GroupBy(y => y.UserId)
-                        .Select(group => group.GroupBy(z => z.Date.Date)).ToList();
-                    break;
-
-                case CallDetailFilterType.AfternoonCalls:
-
-                    orderedCalls = allCalls
-                        .Where(c => c.Date.TimeOfDay > new TimeSpan(12, 0, 0))
-                        .OrderBy(x => x.UserId)
-                        .GroupBy(y => y.UserId)
-                        .Select(group => group.GroupBy(z => z.Date.Date)).ToList();
-                    break;
-
-                case CallDetailFilterType.MobileNumbers:
-
-                    orderedCalls = allCalls
-                        .Where(c => c.PhoneNumber.StartsWith("07"))
-                        .OrderBy(x => x.UserId)
-                        .GroupBy(y => y.UserId)
-                        .Select(group => group.GroupBy(z => z.Date.Date)).ToList();
-                    break;
-
-                case CallDetailFilterType.LandlineNumbers:
-
-                    orderedCalls = allCalls
-                        .Where(c => !c.PhoneNumber.StartsWith("07"))
-                        .OrderBy(x => x.UserId)
-                        .GroupBy(y => y.UserId)
-                        .Select(group => group.GroupBy(z => z.Date.Date)).ToList();
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(filterType), filterType, null);
-            }
-
-            foreach (var groupsByUser in orderedCalls)
+            foreach (var groupsByUser in orderedCallsForFilter)
             {
                 foreach (var groupsByUserAndDate in groupsByUser)
                 {
@@ -90,6 +36,62 @@ namespace MPD.Interviews.WebApplication.Controllers
             }
 
           return View("~/Views/Home/Index.cshtml", callDetailsViewModel);
+        }
+
+        private static IEnumerable<IEnumerable<IGrouping<DateTime, CallDetailViewModel>>> GetOrderedCallsForFilter(CallDetailFilterType filterType, IList<CallDetailViewModel> allCalls)
+        {
+            IEnumerable<IEnumerable<IGrouping<DateTime, CallDetailViewModel>>> orderedCalls;
+
+            switch (filterType)
+            {
+                case CallDetailFilterType.None:
+
+                    orderedCalls = allCalls.OrderBy(x => x.UserId)
+                        .GroupBy(y => y.UserId)
+                        .Select(group => @group.GroupBy(z => z.Date.Date)).ToList();
+                    break;
+
+                case CallDetailFilterType.MorningCalls:
+
+                    orderedCalls = allCalls
+                        .Where(c => c.Date.TimeOfDay < new TimeSpan(12, 0, 0))
+                        .OrderBy(x => x.UserId)
+                        .GroupBy(y => y.UserId)
+                        .Select(group => @group.GroupBy(z => z.Date.Date)).ToList();
+                    break;
+
+                case CallDetailFilterType.AfternoonCalls:
+
+                    orderedCalls = allCalls
+                        .Where(c => c.Date.TimeOfDay > new TimeSpan(12, 0, 0))
+                        .OrderBy(x => x.UserId)
+                        .GroupBy(y => y.UserId)
+                        .Select(group => @group.GroupBy(z => z.Date.Date)).ToList();
+                    break;
+
+                case CallDetailFilterType.MobileNumbers:
+
+                    orderedCalls = allCalls
+                        .Where(c => c.PhoneNumber.StartsWith("07"))
+                        .OrderBy(x => x.UserId)
+                        .GroupBy(y => y.UserId)
+                        .Select(group => @group.GroupBy(z => z.Date.Date)).ToList();
+                    break;
+
+                case CallDetailFilterType.LandlineNumbers:
+
+                    orderedCalls = allCalls
+                        .Where(c => !c.PhoneNumber.StartsWith("07"))
+                        .OrderBy(x => x.UserId)
+                        .GroupBy(y => y.UserId)
+                        .Select(group => @group.GroupBy(z => z.Date.Date)).ToList();
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(filterType), filterType, null);
+            }
+
+            return orderedCalls;
         }
     }
 }
