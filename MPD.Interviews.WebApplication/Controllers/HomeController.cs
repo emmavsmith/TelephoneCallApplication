@@ -22,7 +22,6 @@ namespace MPD.Interviews.WebApplication.Controllers
         public ActionResult Index(CallDetailFilterType filterType = CallDetailFilterType.None)
         {
             var allCalls = _callDetailsService.GetAllCalls();
-            //var orderedCalls = allCalls.OrderBy(u => u.UserId).ThenBy(d => d.Date).GroupBy(x => x.UserId).ToList();
             var orderedCalls = allCalls.OrderBy(y => y.UserId).GroupBy(x => new {x.UserId, x.Date.Date}).ToList();
             var callDetailsViewModel = new CallDetailsViewModel();
 
@@ -40,23 +39,5 @@ namespace MPD.Interviews.WebApplication.Controllers
 
             return View("~/Views/Home/Index.cshtml", callDetailsViewModel);
         }
-    }
-
-    public class GroupedCallsViewModel
-    {
-        public GroupedCallsViewModel()
-        {
-            
-        }
-
-        public GroupedCallsViewModel(IList<CallDetailViewModel> callDetails, int groupedCallsDuration)
-        {
-            CallDetails = callDetails;
-            GroupedCallsDuration = groupedCallsDuration;
-        }
-
-        public IList<CallDetailViewModel> CallDetails { get; set; }
-        public int GroupedCallsDuration { get; set; }
-        public decimal DurationInMinutes => Math.Round(GroupedCallsDuration / 60M, 2);
     }
 }
