@@ -1,4 +1,5 @@
-﻿@model MPD.Interviews.WebApplication.ViewModels.AddCallDetailViewModel
+﻿@using MPD.Interviews.WebApplication.Extensions
+@model MPD.Interviews.WebApplication.ViewModels.AddCallDetailViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,9 +7,32 @@
 
 <h1>Add call</h1>
 <div class="row">
-    <div class="col-md-6">
-        <div class="alert alert-danger">
-            This needs to be implemented as part of Task 3
-        </div>
+    <div class="col-md-10">
+        @using (Html.BeginForm("AddCall", "AddCall", FormMethod.Post))
+        {
+            <div class="form-group col-md-8">
+                <label for="User">User</label>
+                @Html.DropDownListFor(x => x.CallDetails.UserId, Model.Users.ToSelectList(), new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-8">
+                <label for="Date">Call Date / Time</label>
+                @Html.TextBoxFor(x => x.CallDetails.Date, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-8">
+                <label for="Duration">Duration (Seconds)</label>
+                @Html.TextBoxFor(x => x.CallDetails.Duration, new { @class = "form-control", type = "date" })
+            </div>
+            <div class="form-group col-md-8">
+                <label for="CustomLabel">Custom Label</label>
+                @Html.TextBoxFor(x => x.CallDetails.CustomLabel, new { @class = "form-control", type = "date" })
+            </div>
+            <div class="form-group col-md-8">
+                <label for="PhoneNumber">Phone Number</label>
+                @Html.TextBoxFor(x => x.CallDetails.PhoneNumber, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-8">
+                <input type="submit" class="btn btn-success" value="Save" />
+            </div>
+        }
     </div>
 </div>
