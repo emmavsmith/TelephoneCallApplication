@@ -21,8 +21,11 @@ namespace MPD.Interviews.WebApplication.Controllers
         [Route("AddCall")]
         public ActionResult Index()
         {
-            var viewModel = new AddCallDetailViewModel();
-            
+            var viewModel = new AddCallDetailViewModel()
+            {
+                Users = _userService.GetAllUsers()
+            };
+
             return View("~/Views/AddCall/AddCall.cshtml", viewModel);
         }
 
@@ -30,7 +33,14 @@ namespace MPD.Interviews.WebApplication.Controllers
         [Route("AddCall")]
         public ActionResult AddCall(AddCallDetailViewModel model)
         {
-            throw new NotImplementedException("See task 3");
+            if (!ModelState.IsValid)
+            {
+                return View("~/Views/AddCall/AddCall.cshtml", model);
+            }
+
+            var callAdded = _callDetailsService.AddCallDetailRecord(model.CallDetails);
+
+            return !callAdded ? View("~/Views/AddCall/AddCall.cshtml", model) : View("~/Views/AddCall/CallAdded.cshtml");
         }
     }
 }
