@@ -75,7 +75,7 @@ namespace MPD.Interviews.Tests.WebApplicationTests.ControllerTests
         }
 
         [Test]
-        public void WhenAddCall_AndModelStateIsValid_AndCallNotAddedSuccessfully_ThenCallAddedView()
+        public void WhenAddCall_AndModelStateIsValid_AndCallNotAddedSuccessfully_ThenModelReturnedToAddCallView()
         {
             // Arrange
             var addCallDetailViewModel = GetAddCallDetailViewModel();
