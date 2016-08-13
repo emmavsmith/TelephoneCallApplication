@@ -57,7 +57,19 @@ namespace MPD.Interviews.WebApplication.Services
 
         public IList<CallDetailViewModel> GetCallsBySearch(CallSearchTermsViewModel searchTerms)
         {
-            throw new NotImplementedException("See task 4");
+            try
+            {
+                var newSearchTerms = new CallSearchTerms(searchTerms.UserId, searchTerms.CustomLabel, searchTerms.StartDate, searchTerms.EndDate, searchTerms.PhoneNumber);
+                var callsBySearch = _callDetailsSearchRepository.CallDetailsSearch(newSearchTerms);
+                var viewModel = _mapper.Map<IList<CallDetailViewModel>>(callsBySearch);
+
+                return viewModel;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Error retrieving calls by search. Error: {ex.Message}", ex);
+                throw;
+            }
         }
     }
 }

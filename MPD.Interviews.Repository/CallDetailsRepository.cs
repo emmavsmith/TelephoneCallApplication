@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Dapper;
 using MPD.Interviews.Domain;
 using MPD.Interviews.Interfaces.Logging;
@@ -108,12 +109,91 @@ namespace MPD.Interviews.Repository
 
         public IEnumerable<CallDetails> CallDetailsSearch(CallSearchTerms searchTerms)
         {
-            throw new NotImplementedException("See task 4");
+            using (var conn = GetConnection())
+            {
+                const string SQL = "SELECT Id, UserId, PhoneNumber, CustomLabel, Duration, Date FROM CallDetails;";
+
+                string newSql;
+                if (HasAnySearchTerm(searchTerms))
+                {
+                    newSql = ApplySearchTerms(SQL, searchTerms);
+                }
+                else
+                {
+                    newSql = SQL;
+                }
+
+                //var newSql = HasAnySearchTerm(searchTerms) ? ApplySearchTerms(SQL, searchTerms) : SQL;
+
+                var result = conn.Query<CallDetails>(newSql);
+                return result.ToList();
+            }
         }
 
         private string ApplySearchTerms(string sql, CallSearchTerms searchTerms)
         {
-            throw new NotImplementedException("See task 4");
+            var fullSearchSql = new StringBuilder();
+            fullSearchSql.Append(sql);
+            fullSearchSql.Remove(fullSearchSql.Length - 1, 1); // Remove the semi-colon
+            var whereUsed = false;
+
+            if (searchTerms.UserId.HasValue)
+            {
+                fullSearchSql.Append(" WHERE UserId = " + searchTerms.UserId);
+                whereUsed = true;
+            }
+
+            if (!string.IsNullOrEmpty(searchTerms.CustomLabel))
+            {
+                if (whereUsed)
+                {
+                    fullSearchSql.Append(" And ");
+                }
+                else
+                {
+                    fullSearchSql.Append(" WHERE ");
+                    whereUsed = true;
+                }
+                fullSearchSql.Append("CustomLabel = '" + searchTerms.CustomLabel + "'");
+            }
+
+            if (!string.IsNullOrEmpty(searchTerms.PhoneNumber))
+            {
+                if (whereUsed)
+                {
+                    fullSearchSql.Append(" And ");
+                }
+                else
+                {
+                    fullSearchSql.Append(" WHERE ");
+                    whereUsed = true;
+                }
+                fullSearchSql.Append("PhoneNumber = '" + searchTerms.PhoneNumber + "'");
+            }
+
+            if (searchTerms.StartDate.HasValue)
+            {
+                if (whereUsed)
+                {
+                    fullSearchSql.Append(" And ");
+                }
+                else
+                {
+                    fullSearchSql.Append(" WHERE ");
+                    whereUsed = true;
+                }
+                fullSearchSql.Append("date(Date) >= date('" + searchTerms.StartDate.Value.ToString("yyyy-MM-dd") + "')");
+            }
+
+            if (searchTerms.EndDate.HasValue)
+            {
+                fullSearchSql.Append(whereUsed ? " And " : " WHERE ");
+                fullSearchSql.Append("date(Date) <= date('" + searchTerms.EndDate.Value.ToString("yyyy-MM-dd") + "')");
+            }
+
+            fullSearchSql.Append(";");
+
+            return fullSearchSql.ToString();
         }
 
         private bool HasAnySearchTerm(CallSearchTerms searchTerms)
