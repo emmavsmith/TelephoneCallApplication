@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPD.Interviews.WebApplication", "MPD.Interviews.WebApplication\MPD.Interviews.WebApplication.csproj", "{0D34FC69-23BA-4FE1-8C4A-22F6D39C8577}"
 EndProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3A3158
 	ProjectSection(SolutionItems) = preProject
 		nuget.config = nuget.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPD.Interviews.Tests", "MPD.Interviews.Tests\MPD.Interviews.Tests.csproj", "{DC1F271F-961D-4B20-89B9-2AD1FD0ABDE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{843E621A-D8B0-483D-8BC8-C7C16290C194}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{843E621A-D8B0-483D-8BC8-C7C16290C194}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{843E621A-D8B0-483D-8BC8-C7C16290C194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC1F271F-961D-4B20-89B9-2AD1FD0ABDE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC1F271F-961D-4B20-89B9-2AD1FD0ABDE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC1F271F-961D-4B20-89B9-2AD1FD0ABDE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC1F271F-961D-4B20-89B9-2AD1FD0ABDE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

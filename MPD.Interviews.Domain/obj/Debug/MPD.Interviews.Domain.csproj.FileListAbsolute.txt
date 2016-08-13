@@ -7,4 +7,3 @@ C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Domain\bin\Deb
 C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Domain\bin\Debug\MPD.Interviews.Domain.pdb
 C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Domain\obj\Debug\MPD.Interviews.Domain.dll
 C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Domain\obj\Debug\MPD.Interviews.Domain.pdb
-C:\Users\EmmaVictoria\Documents\mpd-interview-test\MPD.Interviews.Domain\obj\Debug\MPD.Interviews.Domain.csprojResolveAssemblyReference.cache
