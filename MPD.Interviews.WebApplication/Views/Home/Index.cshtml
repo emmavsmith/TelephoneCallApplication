@@ -29,7 +29,7 @@
     <div>
         <div class="btn @(@Model.AppliedFilterType == CallDetailFilterType.None ? "btn-success" : "btn-info")">@Html.ActionLink("No Filter", "Index", "Home", new {filterType = CallDetailFilterType.None}, new {@class = "filter-link-text"})</div>
         <div class="btn @(@Model.AppliedFilterType == CallDetailFilterType.MorningCalls ? "btn-success" : "btn-info")">@Html.ActionLink("Morning Calls", "Index", "Home", new {filterType = CallDetailFilterType.MorningCalls}, new {@class = "filter-link-text"})</div>
-        <div class="btn @(@Model.AppliedFilterType == CallDetailFilterType.AfternoonCalls ? "btn-success" : "btn-info")">@Html.ActionLink("Aftrnoon Calls", "Index", "Home", new {filterType = CallDetailFilterType.AfternoonCalls}, new {@class = "filter-link-text"})</div>
+        <div class="btn @(@Model.AppliedFilterType == CallDetailFilterType.AfternoonCalls ? "btn-success" : "btn-info")">@Html.ActionLink("Afternoon Calls", "Index", "Home", new {filterType = CallDetailFilterType.AfternoonCalls}, new {@class = "filter-link-text"})</div>
         <div class="btn @(@Model.AppliedFilterType == CallDetailFilterType.MobileNumbers ? "btn-success" : "btn-info")">@Html.ActionLink("Mobile Numbers", "Index", "Home", new {filterType = CallDetailFilterType.MobileNumbers}, new {@class = "filter-link-text"})</div>
         <div class="btn @(@Model.AppliedFilterType == CallDetailFilterType.LandlineNumbers ? "btn-success" : "btn-info")">@Html.ActionLink("Landline Numbers", "Index", "Home", new {filterType = CallDetailFilterType.LandlineNumbers}, new {@class = "filter-link-text"})</div>
     </div>
@@ -80,7 +80,7 @@
               }
             <tr>
                 <td>
-                    Total duration for user @group.CallDetails.First().UserId on @group.CallDetails.First().Date.ToString("dd/MM/yyyy")
+                    Total duration for user @group.CallDetails.First().UserId on @group.CallDetails.First().Date.ToString("dd MMMM yyyy")
                 </td>
                 <td></td>
                 <td></td>

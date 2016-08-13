@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using MPD.Interviews.WebApplication.Controllers;
 using MPD.Interviews.WebApplication.Services.Interfaces;
@@ -29,16 +30,25 @@ namespace MPD.Interviews.Tests.WebApplicationTests.ControllerTests
             // Arrange
             _controller.ModelState.AddModelError("", "test error message");
             var addCallDetailViewModel = new AddCallDetailViewModel();
+            var users = GetUsers();
+            _userService.Stub(x => x.GetAllUsers()).Return(users);
 
             // Act
             var result = _controller.AddCall(addCallDetailViewModel);
 
             // Assert
             Assert.That(result, Is.Not.Null);
+
             var viewResult = result as ViewResult;
             Assert.That(viewResult, Is.Not.Null);
             Assert.That(viewResult.ViewName, Is.EqualTo("~/Views/AddCall/AddCall.cshtml"));
-            Assert.That(viewResult.Model, Is.EqualTo(addCallDetailViewModel));
+            Assert.That(viewResult.Model, Is.Not.Null);
+
+            var model = viewResult.Model as AddCallDetailViewModel;
+            Assert.That(model, Is.Not.Null);
+            Assert.That(model.CallDetails, Is.EqualTo(addCallDetailViewModel.CallDetails));
+            Assert.That(model.Users, Is.EqualTo(users));
+
         }
 
         [Test]
@@ -70,16 +80,25 @@ namespace MPD.Interviews.Tests.WebApplicationTests.ControllerTests
             // Arrange
             var addCallDetailViewModel = GetAddCallDetailViewModel();
             _callDetailsService.Stub(x => x.AddCallDetailRecord(Arg<CallDetailViewModel>.Is.Anything)).Return(false);
+            var users = GetUsers();
+            _userService.Stub(x => x.GetAllUsers()).Return(users);
 
             // Act
             var result = _controller.AddCall(addCallDetailViewModel);
 
+
             // Assert
             Assert.That(result, Is.Not.Null);
+
             var viewResult = result as ViewResult;
             Assert.That(viewResult, Is.Not.Null);
             Assert.That(viewResult.ViewName, Is.EqualTo("~/Views/AddCall/AddCall.cshtml"));
-            Assert.That(viewResult.Model, Is.EqualTo(addCallDetailViewModel));
+            Assert.That(viewResult.Model, Is.Not.Null);
+
+            var model = viewResult.Model as AddCallDetailViewModel;
+            Assert.That(model, Is.Not.Null);
+            Assert.That(model.CallDetails, Is.EqualTo(addCallDetailViewModel.CallDetails));
+            Assert.That(model.Users, Is.EqualTo(users));
         }
 
         private static AddCallDetailViewModel GetAddCallDetailViewModel()
@@ -94,6 +113,14 @@ namespace MPD.Interviews.Tests.WebApplicationTests.ControllerTests
                     Duration = 1000,
                     PhoneNumber = "01234 567890"
                 }
+            };
+        }
+
+        private static List<UserViewModel> GetUsers()
+        {
+            return new List<UserViewModel>()
+            {
+                new UserViewModel(1, "Emma", "Smith", "Software Engineer")
             };
         }
     }

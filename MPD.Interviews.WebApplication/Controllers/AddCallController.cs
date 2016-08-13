@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using MPD.Interviews.WebApplication.Services.Interfaces;
 using MPD.Interviews.WebApplication.ViewModels;
 
@@ -21,11 +20,7 @@ namespace MPD.Interviews.WebApplication.Controllers
         [Route("AddCall")]
         public ActionResult Index()
         {
-            var viewModel = new AddCallDetailViewModel()
-            {
-                Users = _userService.GetAllUsers()
-            };
-
+            var viewModel = ApplyUsersToViewModel(new AddCallDetailViewModel());
             return View("~/Views/AddCall/AddCall.cshtml", viewModel);
         }
 
@@ -35,12 +30,25 @@ namespace MPD.Interviews.WebApplication.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("~/Views/AddCall/AddCall.cshtml", model);
+                var modelWithUsers = ApplyUsersToViewModel(model);
+                return View("~/Views/AddCall/AddCall.cshtml", modelWithUsers);
             }
 
             var callAdded = _callDetailsService.AddCallDetailRecord(model.CallDetails);
 
-            return !callAdded ? View("~/Views/AddCall/AddCall.cshtml", model) : View("~/Views/AddCall/CallAdded.cshtml");
+            if (!callAdded)
+            {
+                var modelWithUsers = ApplyUsersToViewModel(model);
+                return View("~/Views/AddCall/AddCall.cshtml", modelWithUsers);
+            }
+
+            return View("~/Views/AddCall/CallAdded.cshtml");
+        }
+
+        private AddCallDetailViewModel ApplyUsersToViewModel(AddCallDetailViewModel model)
+        {
+            model.Users = _userService.GetAllUsers();
+            return model;
         }
     }
 }
