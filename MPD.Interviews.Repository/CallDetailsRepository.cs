@@ -112,25 +112,13 @@ namespace MPD.Interviews.Repository
             using (var conn = GetConnection())
             {
                 const string SQL = "SELECT Id, UserId, PhoneNumber, CustomLabel, Duration, Date FROM CallDetails;";
-
-                string newSql;
-                if (HasAnySearchTerm(searchTerms))
-                {
-                    newSql = ApplySearchTerms(SQL, searchTerms);
-                }
-                else
-                {
-                    newSql = SQL;
-                }
-
-                //var newSql = HasAnySearchTerm(searchTerms) ? ApplySearchTerms(SQL, searchTerms) : SQL;
-
+                var newSql = HasAnySearchTerm(searchTerms) ? ApplySearchTerms(SQL, searchTerms) : SQL;
                 var result = conn.Query<CallDetails>(newSql);
                 return result.ToList();
             }
         }
 
-        private string ApplySearchTerms(string sql, CallSearchTerms searchTerms)
+        private static string ApplySearchTerms(string sql, CallSearchTerms searchTerms)
         {
             var fullSearchSql = new StringBuilder();
             fullSearchSql.Append(sql);
@@ -196,7 +184,7 @@ namespace MPD.Interviews.Repository
             return fullSearchSql.ToString();
         }
 
-        private bool HasAnySearchTerm(CallSearchTerms searchTerms)
+        private static bool HasAnySearchTerm(CallSearchTerms searchTerms)
         {
             return !string.IsNullOrEmpty(searchTerms.CustomLabel)
                    || searchTerms.EndDate.HasValue
